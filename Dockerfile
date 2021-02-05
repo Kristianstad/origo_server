@@ -7,12 +7,8 @@
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_VERSION="2.0.4"
 ARG IMAGETYPE="application"
-ARG LIGHTTPD2_VERSION="20201125"
-ARG CONTENTIMAGE1="node:alpine"
-ARG CONTENTDESTINATION1="/"
-ARG BASEIMAGE="huggla/sam-lighttpd2:$LIGHTTPD2_VERSION"
+ARG BASEIMAGE="node:alpine"
 ARG CLONEGITS="https://github.com/origo-map/origo-server.git"
-ARG BUILDDEPS="python2"
 ARG BUILDCMDS=\
 "   cd origo-server "\
 "&& npm install "\
@@ -42,10 +38,7 @@ COPY --from=build /finalfs /
 # =========================================================================
 # Final
 # =========================================================================
-ENV VAR_ORIGO_CONFIG_DIR="/etc/origo-server" \
-    VAR_OPERATION_MODE="normal" \
-    VAR_setup1_module_load="[ 'mod_deflate' ]" \
-    VAR_WWW_DIR="/origo-server"
+ENV VAR_ORIGO_CONFIG_DIR="/etc/origo-server"
 
 # Generic template (don't edit) <BEGIN>
 USER starter
