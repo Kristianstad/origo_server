@@ -7,14 +7,15 @@
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_VERSION="2.0.4"
 ARG IMAGETYPE="application"
-ARG BASEIMAGE="node:alpine"
-ARG CLONEGITS="https://github.com/origo-map/origo-server.git"
+ARG INITIMAGE="node:alpine"
+ARG CLONEGITS="https://github.com/origo-map/origo.git"
+ARG BUILDDEPS="python2"
 ARG BUILDCMDS=\
 "   cd origo-server "\
 "&& npm install "\
-#"&& npm --depth 8 update "\
-"&& cp -a ./ /finalfs/origo-server"
-#ARG REMOVEDIRS="/origo/origo-documentation /origo/examples"
+"&& npm --depth 8 update "\
+"&& rm -rf /finalfs/* "\
+"&& cp -a ../origo-server /finalfs/"
 # ARGs (can be passed to Build/Final) </END>
 
 # Generic template (don't edit) <BEGIN>
@@ -25,6 +26,12 @@ FROM ${CONTENTIMAGE4:-scratch} as content4
 FROM ${CONTENTIMAGE5:-scratch} as content5
 FROM ${INITIMAGE:-${BASEIMAGE:-huggla/secure_and_minimal:$SaM_VERSION-base}} as init
 # Generic template (don't edit) </END>
+
+RUN exec > /build.log 2>&1 \
+ && set -ex +fam \
+ && mkdir /environment /tmp/onbuild \
+ && (find . -type l ! -path './tmp/*' ! -path './var/cache/*' ! -path './proc/*' ! -path './sys/*' ! -path './dev/*' -exec sh -c 'echo -n "$(echo "{}" | cut -c 2-)>"' \; -exec readlink "{}" \; && find . -type f ! -path './tmp/*' ! -path './var/cache/*' ! -path './proc/*' ! -path './sys/*' ! -path './dev/*' -exec md5sum "{}" \; | awk '{first=$1; $1=""; print $0">"first}' | sed 's|^ [.]||') | sort -u - > /tmp/onbuild/exclude.filelist \
+ && tar -c -z -f /environment/onbuild.tar.gz -C /tmp onbuild
 
 # =========================================================================
 # Build
@@ -38,7 +45,8 @@ COPY --from=build /finalfs /
 # =========================================================================
 # Final
 # =========================================================================
-ENV VAR_ORIGO_CONFIG_DIR="/etc/origo-server"
+ENV VAR_FINAL_COMMAND="cd origo-server && node app.js" \
+    VAR_CONFIG_DIR="/etc/origo-server"
 
 # Generic template (don't edit) <BEGIN>
 USER starter
