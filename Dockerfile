@@ -9,7 +9,6 @@ ARG SaM_VERSION="2.0.4"
 ARG IMAGETYPE="application"
 ARG INITIMAGE="node:alpine"
 ARG CLONEGITS="https://github.com/origo-map/origo-server.git"
-ARG BUILDDEPS="python2"
 ARG BUILDCMDS=\
 "   cd origo-server "\
 "&& npm install "\
