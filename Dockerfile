@@ -17,6 +17,7 @@ ARG BUILDCMDS=\
 "&& npm --depth 8 update "\
 "&& rm -rf /finalfs/* "\
 "&& cp -a ../origo-server /finalfs/"
+ARG STARTUPEXECUTABLES="/usr/bin/node"
 # ARGs (can be passed to Build/Final) </END>
 
 # Generic template (don't edit) <BEGIN>
