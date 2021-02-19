@@ -10,7 +10,7 @@ ARG IMAGETYPE="application"
 ARG INITIMAGE="node:alpine"
 ARG INITCMDS=\
 '   find / -path "/finalfs/*" -mindepth 2 -maxdepth 2 -exec cp -a "{}" / \; '\
-'&& rm -rf /finalfs/* '\
+#'&& rm -rf /finalfs/* '\
 '&& mkdir -p /finalfs/usr/local/bin'
 ARG CLONEGITS="https://github.com/origo-map/origo-server.git"
 ARG RUNDEPS="nodejs-current"
@@ -30,10 +30,8 @@ FROM ${CONTENTIMAGE3:-scratch} as content3
 FROM ${CONTENTIMAGE4:-scratch} as content4
 FROM ${CONTENTIMAGE5:-scratch} as content5
 FROM ${INITIMAGE:-${BASEIMAGE:-huggla/secure_and_minimal:$SaM_VERSION-base}} as init
+RUN mkdir -p /environment
 # Generic template (don't edit) </END>
-
-RUN mkdir -p /environment /tmp/onbuild \
- && touch /tmp/onbuild/exclude.filelist
 
 # =========================================================================
 # Build
