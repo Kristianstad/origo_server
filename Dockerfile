@@ -10,7 +10,7 @@ ARG IMAGETYPE="application"
 ARG INITIMAGE="node:alpine"
 ARG INITCMDS=\
 '   find / -path "/finalfs/*" -mindepth 2 -maxdepth 2 -exec cp -a "{}" / \; '\
-#'&& rm -rf /finalfs/* '\
+'&& rm -rf /finalfs/* '\
 '&& mkdir -p /finalfs/usr/local/bin'
 ARG CLONEGITS="https://github.com/origo-map/origo-server.git"
 ARG RUNDEPS="nodejs-current"
