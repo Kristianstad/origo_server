@@ -21,6 +21,7 @@ ARG BUILDCMDS=\
 "&& npm --depth 8 update "\
 "&& cp -a ../origo-server /finalfs/"
 ARG STARTUPEXECUTABLES="/usr/bin/node"
+ARG FINALCMDS="apk upgrade musl"
 # ARGs (can be passed to Build/Final) </END>
 
 # Generic template (don't edit) <BEGIN>
