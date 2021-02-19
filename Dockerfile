@@ -33,6 +33,9 @@ FROM ${INITIMAGE:-${BASEIMAGE:-huggla/secure_and_minimal:$SaM_VERSION-base}} as 
 RUN mkdir -p /environment
 # Generic template (don't edit) </END>
 
+RUN mkdir -p /tmp/onbuild \	
+ && touch /tmp/onbuild/exclude.filelist
+
 # =========================================================================
 # Build
 # =========================================================================
