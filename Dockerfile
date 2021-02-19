@@ -5,7 +5,7 @@
 # Init
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
-ARG SaM_VERSION="2.0.5"
+ARG SaM_VERSION="2.0.4"
 ARG IMAGETYPE="application"
 ARG INITIMAGE="node:alpine"
 ARG INITCMDS=\
@@ -21,7 +21,6 @@ ARG BUILDCMDS=\
 "&& npm --depth 8 update "\
 "&& cp -a ../origo-server /finalfs/"
 ARG STARTUPEXECUTABLES="/usr/bin/node"
-ARG FINALCMDS="apk upgrade musl"
 # ARGs (can be passed to Build/Final) </END>
 
 # Generic template (don't edit) <BEGIN>
