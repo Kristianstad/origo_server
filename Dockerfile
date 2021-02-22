@@ -7,7 +7,7 @@
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_VERSION="2.0.4"
 ARG IMAGETYPE="application"
-ARG INITIMAGE="node:alpine"
+ARG INITIMAGE="node:alpine3.13"
 ARG INITCMDS=\
 '   find / -path "/finalfs/*" -mindepth 2 -maxdepth 2 -exec cp -a "{}" / \; '\
 '&& rm -rf /finalfs/* '\
