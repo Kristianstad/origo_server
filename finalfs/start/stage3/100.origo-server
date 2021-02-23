@@ -7,5 +7,5 @@
 
 if [ "$isFirstRun" == "true" ]
 then
-   replaceDirWithLink "/origo-server/conf" "$VAR_ORIGO_CONFIG_DIR"
+   replaceDirWithLink "/origo-server/conf" "$VAR_CONFIG_DIR"
 fi
