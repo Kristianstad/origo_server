@@ -5,13 +5,13 @@
 # Init
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
-ARG SaM_VERSION="dev"
+ARG SaM_VERSION="2.0.5"
 ARG IMAGETYPE="application"
 ARG INITIMAGE="node:alpine3.13"
-#ARG INITCMDS=\
-#'   find / -path "/finalfs/*" -mindepth 2 -maxdepth 2 -exec cp -a "{}" / \; '\
-#'&& rm -rf /finalfs/* '\
-#'&& mkdir -p /finalfs/usr/local/bin'
+ARG INITCMDS=\
+'   find / -path "/finalfs/*" -mindepth 2 -maxdepth 2 -exec cp -a "{}" / \; '\
+'&& rm -rf /finalfs/* '\
+'&& mkdir -p /finalfs/usr/local/bin'
 ARG CLONEGITS="https://github.com/origo-map/origo-server.git"
 ARG RUNDEPS="nodejs-current"
 ARG BUILDDEPS="python2"
