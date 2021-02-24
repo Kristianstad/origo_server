@@ -8,10 +8,6 @@
 ARG SaM_VERSION="dev"
 ARG IMAGETYPE="application"
 ARG INITIMAGE="node:alpine3.13"
-#ARG INITCMDS=\
-#'   find / -path "/finalfs/*" -mindepth 2 -maxdepth 2 -exec cp -a "{}" / \; '\
-#'&& rm -rf /finalfs/* '\
-#'&& mkdir -p /finalfs/usr/local/bin'
 ARG CLONEGITS="https://github.com/origo-map/origo-server.git"
 ARG RUNDEPS="nodejs-current"
 ARG BUILDDEPS="python2"
@@ -46,7 +42,7 @@ COPY --from=build /finalfs /
 # =========================================================================
 # Final
 # =========================================================================
-ENV VAR_FINAL_COMMAND="cd origo-server && node app.js" \
+ENV VAR_FINAL_COMMAND="node /origo-server/app.js" \
     VAR_CONFIG_DIR="/origo-server/conf"
 
 # Generic template (don't edit) <BEGIN>
