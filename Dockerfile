@@ -43,7 +43,7 @@ COPY --from=build /finalfs /
 # Final
 # =========================================================================
 ENV VAR_FINAL_COMMAND="node /origo-server/app.js" \
-    VAR_CONFIG_DIR="/origo-server/conf"
+    VAR_CONFIG_DIR="/etc/origo-server"
 
 # Generic template (don't edit) <BEGIN>
 USER starter
