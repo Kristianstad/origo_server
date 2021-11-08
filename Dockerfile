@@ -8,7 +8,7 @@
 ARG SaM_VERSION="dev"
 ARG IMAGETYPE="application"
 ARG INITIMAGE="node:alpine3.13"
-ARG CLONEGITS="https://github.com/origo-map/origo-server.git"
+ARG CLONEGITS="https://github.com/origo-map/origo-server.git -b new-version-inskrivning"
 ARG RUNDEPS="nodejs-current"
 ARG BUILDDEPS="python2"
 ARG BUILDCMDS=\
