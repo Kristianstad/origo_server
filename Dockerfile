@@ -14,7 +14,7 @@ ARG BUILDDEPS="python2"
 ARG BUILDCMDS=\
 "   cd origo-server "\
 "&& npm install "\
-"&& npm --depth 8 update "\
+#"&& npm --depth 8 update "\
 "&& chmod -R g+w conf "\
 "&& cp -a ../origo-server /finalfs/"
 ARG STARTUPEXECUTABLES="/usr/bin/node"
