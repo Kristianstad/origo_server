@@ -5,12 +5,12 @@
 # Init
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
-ARG SaM_VERSION="dev"
+ARG SaM_VERSION="2.0.6-3.16"
 ARG IMAGETYPE="application"
-ARG INITIMAGE="node:alpine3.13"
-ARG CLONEGITS="https://github.com/origo-map/origo-server.git -b new-version-inskrivning"
+ARG INITIMAGE="node:alpine3.16"
+ARG CLONEGITS="https://github.com/origo-map/origo-server.git"
 ARG RUNDEPS="nodejs-current"
-ARG BUILDDEPS="python2"
+ARG BUILDDEPS="python3"
 ARG BUILDCMDS=\
 "   cd origo-server "\
 "&& npm install "\
