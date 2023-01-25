@@ -1,14 +1,13 @@
-# Secure and Minimal image of Postgres
-# https://hub.docker.com/repository/docker/huggla/sam-postgres
-
 # =========================================================================
 # Init
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
-ARG SaM_VERSION="2.0.6-3.16"
+ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
+ARG ALPINE_VERSION=${ALPINE_VERSION:-3.17}
+# Remember to check the version of package nodejs-current. Should match NODEJS_VERSION.
+ARG NODEJS_VERSION="19.3.0"
 ARG IMAGETYPE="application
-# Remember to check the version of nodejs-current!
-ARG INITIMAGE="node:18.6.0-alpine3.16"
+ARG INITIMAGE="node:$NODEJS_VERSION-alpine$ALPINE_VERSION"
 ARG CLONEGITS="https://github.com/origo-map/origo-server.git"
 ARG RUNDEPS="nodejs-current"
 ARG BUILDDEPS="python3"
@@ -27,7 +26,7 @@ FROM ${CONTENTIMAGE2:-scratch} as content2
 FROM ${CONTENTIMAGE3:-scratch} as content3
 FROM ${CONTENTIMAGE4:-scratch} as content4
 FROM ${CONTENTIMAGE5:-scratch} as content5
-FROM ${BASEIMAGE:-huggla/secure_and_minimal:$SaM_VERSION-base} as base
+FROM ${BASEIMAGE:-$SaM_REPO:base-$ALPINE_VERSION} as base
 FROM ${INITIMAGE:-scratch} as init
 # Generic template (don't edit) </END>
 
@@ -35,8 +34,8 @@ FROM ${INITIMAGE:-scratch} as init
 # Build
 # =========================================================================
 # Generic template (don't edit) <BEGIN>
-FROM ${BUILDIMAGE:-huggla/secure_and_minimal:$SaM_VERSION-build} as build
-FROM ${BASEIMAGE:-huggla/secure_and_minimal:$SaM_VERSION-base} as final
+FROM ${BUILDIMAGE:-$SaM_REPO:build-$ALPINE_VERSION} as build
+FROM ${BASEIMAGE:-$SaM_REPO:base-$ALPINE_VERSION} as final
 COPY --from=build /finalfs /
 # Generic template (don't edit) </END>
 
