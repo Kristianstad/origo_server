@@ -11,5 +11,4 @@ then
    cd "$VAR_CONFIG_DIR"
    find * -type d -exec mkdir -p "/origo-server/{}" \;
    find * -type f -exec ln -sf "$VAR_CONFIG_DIR/{}" "/origo-server/{}" \;
-   #replaceDirWithLink "/origo-server/conf" "$VAR_CONFIG_DIR"
 fi
