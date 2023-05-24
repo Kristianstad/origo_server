@@ -7,6 +7,7 @@
 
 if [ "$isFirstRun" == "true" ]
 then
+   chmod g+w /origo-server/OrigoMapState
    cd "$VAR_CONFIG_DIR"
    find * -type d -exec mkdir -p "/origo-server/{}" \;
    find * -type f -exec ln -sf "$VAR_CONFIG_DIR/{}" "/origo-server/{}" \;
