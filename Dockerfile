@@ -13,6 +13,7 @@ ARG RUNDEPS="nodejs-current"
 ARG BUILDDEPS="python3"
 ARG BUILDCMDS=\
 "   cd origo-server "\
+"&& sed -i 's/windowMs: 15 * 60 * 1000,/windowMs: 5 * 60 * 1000,/g;s/max: 100,/max: 500,/g;' app.js "\
 "&& npm install "\
 #"&& npm --depth 8 update "\
 "&& chmod -R g+w conf "\
