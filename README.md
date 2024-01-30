@@ -7,4 +7,4 @@ Origo Server from Github master. Listens on port 3001 internally.
 * VAR_FINAL_COMMAND="node /origo-server/app.js
 
 ## Capabilities
-Can drop all but SETPCAP, SETGID and SETUID.
+Can drop all but CHOWN, SETPCAP, SETGID and SETUID.
