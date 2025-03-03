@@ -12,4 +12,8 @@ then
    cd "$VAR_CONFIG_DIR"
    find * -type d -exec mkdir -p "/origo-server/{}" \;
    find * -type f -exec ln -sf "$VAR_CONFIG_DIR/{}" "/origo-server/{}" \;
+   if [ -n "$VAR_ADD_TO_APPJS" ]
+   then
+      echo "$VAR_ADD_TO_APPJS" >> /origo-server/app.js
+   fi
 fi
