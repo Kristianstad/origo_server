@@ -5,7 +5,7 @@
 ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
 ARG ALPINE_VERSION=${ALPINE_VERSION:-3.22}
 # Remember to check the version of package nodejs-current. Should match NODEJS_VERSION.
-ARG NODEJS_VERSION="23.11.0"
+ARG NODEJS_VERSION="23.11.1"
 #ARG NODEJS_VERSION="21.7.3"
 ARG IMAGETYPE="application"
 ARG INITIMAGE="node:$NODEJS_VERSION-alpine$ALPINE_VERSION"
