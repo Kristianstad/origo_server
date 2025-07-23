@@ -11,7 +11,8 @@ ARG IMAGETYPE="application"
 ARG INITIMAGE="node:$NODEJS_VERSION-alpine$ALPINE_VERSION"
 ARG CLONEGITS="https://github.com/origo-map/origo-server.git"
 ARG RUNDEPS="nodejs-current"
-ARG BUILDDEPS="python3"
+#ARG BUILDDEPS="python3"
+ARG BUILDDEPS="python3 py3-distutils-extra py3-distutils-extra-pyc"
 ARG BUILDCMDS=\
 "   cd origo-server "\
 "&& npm install "\
