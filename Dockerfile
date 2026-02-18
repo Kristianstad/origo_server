@@ -16,6 +16,7 @@ ARG BUILDCMDS=\
 "&& npm install "\
 #"&& npm --depth 8 update "\
 "&& chmod -R g+w conf "\
+"&& sed -i '/var config = {/a \\    ssl: dbConfig.ssl || { rejectUnauthorized: false },' ../origo-server/lib/pg.js "\
 "&& cp -a ../origo-server /finalfs/"
 ARG STARTUPEXECUTABLES="/usr/bin/node"
 # ARGs (can be passed to Build/Final) </END>
