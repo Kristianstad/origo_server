@@ -6,7 +6,7 @@ ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
 ARG ALPINE_VERSION=${ALPINE_VERSION:-3.23}
 ARG APP_VERSION=${APP_VERSION:-260522}
 # Remember to check the version of package nodejs-current. Should match NODEJS_VERSION.
-ARG NODEJS_VERSION="24.9"
+ARG NODEJS_VERSION="24.11"
 ARG IMAGETYPE="application"
 ARG INITIMAGE="node:${NODEJS_VERSION}-alpine${ALPINE_VERSION}"
 ARG CLONEGITS="https://github.com/origo-map/origo-server.git"
