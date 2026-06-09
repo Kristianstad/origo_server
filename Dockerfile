@@ -4,7 +4,7 @@
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
 ARG ALPINE_VERSION=${ALPINE_VERSION:-3.22}
-ARG APP_VERSION=${APP_VERSION:-260522}
+ARG APP_VERSION=${APP_VERSION:-260609}
 # Remember to check the version of package nodejs-current. Should match NODEJS_VERSION.
 ARG NODEJS_VERSION="23.11"
 ARG IMAGETYPE="application"
