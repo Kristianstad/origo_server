@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       alpine_version:
-        description: 'Alpine version (e.g. 3.23)'
+        description: 'Alpine version (e.g. 3.24)'
         required: true
-        default: '3.23'
+        default: '3.24'
       app_version:
         description: 'Application version / tag (e.g. 2.0.0)'
         required: false
